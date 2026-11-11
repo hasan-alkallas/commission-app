@@ -1,0 +1,24 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+skinparam usecase {
+  BackgroundColor #FFF3E0
+  BorderColor #F57C00
+}
+
+actor "Admin" as ADM
+
+rectangle "Commission App" {
+  usecase "Login" as UC1
+  usecase "Manage Users" as UC2
+  usecase "Resolve Dispute" as UC3
+  usecase "Manage ThirdParty Providers" as UC4
+  usecase "View Reports / Revenue" as UC5
+}
+
+ADM --> UC1
+ADM --> UC2
+ADM --> UC3
+ADM --> UC4
+ADM --> UC5
+@enduml

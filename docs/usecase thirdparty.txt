@@ -1,0 +1,26 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+skinparam usecase {
+  BackgroundColor #F3E5F5
+  BorderColor #7B1FA2
+}
+
+actor "ThirdParty\n(Escrow/Bank)" as TP <<external system>>
+
+rectangle "System / Escrow Services" {
+  usecase "Hold Funds in Escrow" as UC1
+  usecase "Release Funds to Partaker" as UC2
+  usecase "Refund Commissioner" as UC3
+  usecase "Record Ledger Entry" as UC4
+  usecase "Calculate Fees" as UC5
+}
+
+TP --> UC1
+TP --> UC2
+TP --> UC3
+
+UC1 ..> UC4 : <<include>>
+UC2 ..> UC4 : <<include>>
+UC3 ..> UC4 : <<include>>
+@enduml
